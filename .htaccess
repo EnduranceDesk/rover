@@ -1,0 +1,21 @@
+# stop the index to being shown
+
+
+
+# .htaccess main domain to subdirectory redirect 
+# Do not change this line. 
+
+
+RewriteEngine On
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+# Map http://www.example.com to /jekyll.
+RewriteRule ^$ /public/ [L]
+
+# Map http://www.example.com/x to /jekyll/x unless there is a x in the web root.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1
