@@ -1,6 +1,6 @@
 @extends('layouts.page')
 @section("title")
-Endurance Panel
+{{ ucwords(Auth::user()->name )}} Rover
 @endsection
 
 

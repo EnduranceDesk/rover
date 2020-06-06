@@ -76,6 +76,9 @@ class LoginController extends Controller
     }
     public function attemptLogin(Request $request)
     {
+        if ($request->input("username") == "root" or $request->input("username") == "rover" or $request->input("username") == "endurance") {
+            return false;
+        }
         $endeavour = new Endeavour;
         $response = $endeavour->login($request->input("username"), $request->input("password"));
         if ($response->success === true) {
@@ -90,7 +93,7 @@ class LoginController extends Controller
             $this->incrementLoginAttempts($request);
             return $this->sendFailedLoginResponse($request);
         }
-        if ($request->input("username") != "root") {
+        if ($request->input("username") == "root" or $request->input("username") == "rover" or $request->input("username") == "endurance") {
             $this->incrementLoginAttempts($request);
             return $this->sendFailedLoginResponse($request);
         }

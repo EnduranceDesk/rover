@@ -31,8 +31,8 @@ let vendors = gentelella+'vendors/';
  |
  */
 
-// mix.copy(vendors+'font-awesome/fonts/','public/fonts/');
-// mix.copy(gentelella+'build/js/custom.js','resources/assets/js/');
+mix.copy(vendors+'font-awesome/fonts/','public/fonts/');
+mix.copy(gentelella+'build/js/custom.js','resources/assets/js/');
 
 
 
