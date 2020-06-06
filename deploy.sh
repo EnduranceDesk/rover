@@ -67,7 +67,8 @@ rm -rf $DIR
 
 echo "Renaming: $TEMPDIR --> $DIR"
 mv -f $TEMPDIR $DIR
-
+# IMPORTANT
+chmod 750 $DIR
 
 echo "Clearing laravel config, event, view cache"
 php artisan config:cache
