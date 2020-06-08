@@ -7,7 +7,7 @@ namespace App\Classes\Endeavour;
  */
 class Endeavour
 {
-    protected $host = "http://142.93.219.1:1023";
+    protected $host = "http://142.93.219.1:1021";
     protected $token;
     function __construct($token = null)
     {
