@@ -6,6 +6,18 @@
         <a href="{{ url("/") }}"><i class="fa fa-home"></i> Home </span></a>
       </li>
     </ul>
+    <h3>DOMAINS</h3>
+    <ul class="nav side-menu">
+      <li>
+        <a href="{{ route("domain.index") }}"><i class="fa fa-envira"></i> Domains </span></a>
+      </li>
+    </ul>
+    <h3>Server Operations</h3>
+    <ul class="nav side-menu">
+      <li>
+        <a href="{{ route("cron.index") }}"><i class="fa fa-clock-o"></i> Cron </span></a>
+      </li>
+    </ul>
 
   </div>
 </div>

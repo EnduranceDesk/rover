@@ -31,7 +31,32 @@ class Endeavour
         $response = $this->post($this->host . "/raven/server/ip/set", ['ip'=>$ip]);
         return $response;
     }
-    protected function post($url, $parameters)
+    public function updateSSL($domain_without_www, $chain)
+    {
+        $response = $this->post($this->host . "/raven/domains/update/ssl", ['domain'=>$domain_without_www, 'chain' => $chain]);
+        return $response;
+    }
+    public function getMyDomains()
+    {
+        $response = $this->post($this->host . "/raven/rover/domains");
+        return $response;
+    }
+    public function getCronStatus()
+    {
+        $response = $this->post($this->host . "/raven/rover/cron/status");
+        return $response;
+    }
+    public function turnCronOn()
+    {
+        $response = $this->post($this->host . "/raven/rover/cron/turn/on");
+        return $response;
+    }
+    public function turnCronOff()
+    {
+        $response = $this->post($this->host . "/raven/rover/cron/turn/off");
+        return $response;
+    }
+    protected function post($url, $parameters = [])
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_URL, $url);
