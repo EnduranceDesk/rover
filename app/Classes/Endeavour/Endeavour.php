@@ -7,11 +7,12 @@ namespace App\Classes\Endeavour;
  */
 class Endeavour
 {
-    protected $host = "http://142.93.219.1:1021";
+    protected $host;
     protected $token;
     function __construct($token = null)
     {
         $this->token = $token;
+        $this->host = file_get_contents("/home/rover/endeavour.ip");
     }
     public function login($username, $password) {
         $response = $this->post($this->host . "/raven/login", ['username'=>$username, 'password'=> $password]);
