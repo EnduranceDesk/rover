@@ -1,6 +1,7 @@
 # Rover 
 
 ### Installation
+`su rover`
 
 `mkdir -p /home/rover/repo`
 
@@ -11,3 +12,5 @@
 `cd /home/rover/repo/rover`
 
 `sh deploy.sh`
+
+`exit`

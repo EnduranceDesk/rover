@@ -12,7 +12,7 @@ class Endeavour
     function __construct($token = null)
     {
         $this->token = $token;
-        $this->host = file_get_contents("/home/rover/endeavour.ip");
+        $this->host = "http://" . file_get_contents("/home/rover/endeavour.ip") . ":1021";
     }
     public function login($username, $password) {
         $response = $this->post($this->host . "/raven/login", ['username'=>$username, 'password'=> $password]);
@@ -35,6 +35,11 @@ class Endeavour
     public function updateSSL($domain_without_www, $chain)
     {
         $response = $this->post($this->host . "/raven/domains/update/ssl", ['domain'=>$domain_without_www, 'chain' => $chain]);
+        return $response;
+    }
+    public function autoSSL($domain_without_www)
+    {
+        $response = $this->post($this->host . "/raven/domains/auto/ssl", ['domain'=>$domain_without_www]);
         return $response;
     }
     public function getMyDomains()

@@ -27,5 +27,6 @@
         This action will update domain whole SSL. Rover won't validate the ceriticate.
     </div>
     <input type="submit" class="btn btn-success btn-block" value="Update SSL">
+    <a href="{{ route("domain.ssl.auto", ['domain' => $domain]) }}" class="btn btn-success btn-block" >Auto SSL</a>
 </form>
 @endsection
