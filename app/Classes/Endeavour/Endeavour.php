@@ -16,6 +16,7 @@ class Endeavour
     }
     public function login($username, $password) {
         $response = $this->post($this->host . "/raven/login", ['username'=>$username, 'password'=> $password]);
+        dd($response);
         return $response;
     }
     protected function setToken($token)
@@ -70,9 +71,9 @@ class Endeavour
         curl_setopt($ch, CURLOPT_POSTFIELDS ,$parameters);
         if ($this->token) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Authorization: Bearer ' . $this->token, 
+                'Authorization: Bearer ' . $this->token,
             ));
-        } 
+        }
         $result = curl_exec($ch);
         curl_close($ch);
         return json_decode($result);
