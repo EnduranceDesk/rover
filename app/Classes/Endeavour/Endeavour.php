@@ -16,7 +16,6 @@ class Endeavour
     }
     public function login($username, $password) {
         $response = $this->post($this->host . "/raven/login", ['username'=>$username, 'password'=> $password]);
-        dd($response);
         return $response;
     }
     protected function setToken($token)
