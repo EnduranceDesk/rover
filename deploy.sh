@@ -11,34 +11,34 @@ TEMPDIR=/home/rover/public_html_temp
 
 rm -rf $BACKUPDIR
 
-if [ -d $DIR ] 
+if [ -d $DIR ]
 then
-    echo "Making backup of previous $NAME." 
+    echo "Making backup of previous $NAME."
     mv -f $DIR/{.,}* $BACKUPDIR/
 else
     echo "No previous $NAME is found. Skipping backup."
 fi
 
-echo "Removing previous TEMPDIR $TEMPDIR." 
+echo "Removing previous TEMPDIR $TEMPDIR."
 rm -rf $TEMPDIR
 
-echo "Making new current DIR $DIR." 
+echo "Making new current DIR $DIR."
 mkdir -p $DIR
 
-echo "Pushing maintain page to  $DIR." 
+echo "Pushing maintain page to  $DIR."
 cp  MAINTAIN_PAGE_DO_NOT_DELETE.html "$DIR/index.html"
 
-echo "Building Temp Directory at $TEMPDIR." 
+echo "Building Temp Directory at $TEMPDIR."
 mkdir -p $TEMPDIR
 
-echo "Moving All files from here to $TEMPDIR." 
+echo "Moving All files from here to $TEMPDIR."
 cp -rf $(pwd)/* $TEMPDIR
 cp -rf $(pwd)/.env.production $TEMPDIR
 cp -rf $(pwd)/.htaccess $TEMPDIR
 
 
 
-echo "Changed current directory $TEMPDIR." 
+echo "Changed current directory $TEMPDIR."
 cd $TEMPDIR
 
 echo "Renaming enviroment file"
